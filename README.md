@@ -21,6 +21,7 @@ You can go to `/reset` to clear the active target manually (the last-used target
 
 ## Limitations
 
+- Did I mention **No security?** There's no auth, no TLS, no nothing.
 - GET only for proxied traffic (no POST/PUT/DELETE forwarding, no CONNECT)
 - Minimal header filtering (drops `Transfer-Encoding`, forces `Connection: close`)
 - No HTML/JS/CSS rewriting (absolute links may escape proxy)
