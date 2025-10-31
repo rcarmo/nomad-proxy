@@ -1,6 +1,6 @@
 # Nomad Proxy
 
-This is a tiny Python asyncio-based single-target web proxy relying only on the standard library that I hacked together so that I could use [my Supernote Nomad](https://taoofmac.com/space/reviews/2025/06/14/1530) as a drawing tablet via a tunnel from inside a VDI session (since of course the VDI environment isn't connected to my local network).
+This is a tiny Python asyncio-based single-target web proxy relying only on the standard library that I hacked together so that I could use [my Supernote Nomad](https://taoofmac.com/space/reviews/2025/06/14/1530) as a drawing tablet via a tunnel from inside a VDI session (since of course the VDI environment isn't connected to my local network). **It assumes you have a good way to secure that tunnel.**
 
 It serves a form (POST) to select a target URL, sets a cookie and 303-redirects back to `/`, then transparently proxies subsequent GET requests to that target until the remote server fails—at which point it clears the active target cookie and shows the form again.
 
@@ -29,7 +29,7 @@ You can go to `/reset` to clear the active target manually (the last-used target
 
 ## Running
 
-Requires Python 3.10+ (for best asyncio behavior). I am currently running this behind an OIDC-authenticated Cloudflare tunnel for TLS and access control, so there's no built-in security.
+Requires Python 3.10+ (for best asyncio behavior). I am currently running this behind an OIDC-authenticated Cloudflare tunnel for TLS and access control, so **there's no built-in security.**
 
 I have also provided a sample `nomad-proxy.service` systemd unit file for running this as a user service on Linux systems with systemd support.
 
